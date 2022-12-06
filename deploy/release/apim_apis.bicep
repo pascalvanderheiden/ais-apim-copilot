@@ -64,7 +64,7 @@ resource apiChatgptPolicies 'Microsoft.ApiManagement/service/apis/policies@2020-
 }
 
 resource apiMonitoringCopilot 'Microsoft.ApiManagement/service/apis/diagnostics@2020-06-01-preview' = {
-  name: 'applicationInsights'
+  name: 'applicationinsights'
   parent: apimApiCopilot
   properties: {
     alwaysLog: 'allErrors'
@@ -77,7 +77,7 @@ resource apiMonitoringCopilot 'Microsoft.ApiManagement/service/apis/diagnostics@
 }
 
 resource apiMonitoringChatgpt 'Microsoft.ApiManagement/service/apis/diagnostics@2020-06-01-preview' = {
-  name: 'applicationInsights'
+  name: 'applicationinsights'
   parent: apimApiChatgpt
   properties: {
     alwaysLog: 'allErrors'
