@@ -46,7 +46,7 @@ resource apimApiChatgpt 'Microsoft.ApiManagement/service/apis@2020-12-01' = {
 }
 
 resource apiCopilotPolicies 'Microsoft.ApiManagement/service/apis/policies@2020-12-01' = {
-  name: 'policy-coplilot'
+  name: 'policy'
   parent: apimApiCopilot
   properties: {
     value: loadTextContent('./policies/api_policy.xml')
@@ -55,7 +55,7 @@ resource apiCopilotPolicies 'Microsoft.ApiManagement/service/apis/policies@2020-
 }
 
 resource apiChatgptPolicies 'Microsoft.ApiManagement/service/apis/policies@2020-12-01' = {
-  name: 'policy-chatgpt'
+  name: 'policy'
   parent: apimApiChatgpt
   properties: {
     value: loadTextContent('./policies/api_policy.xml')
