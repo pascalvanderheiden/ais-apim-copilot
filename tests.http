@@ -1,0 +1,5 @@
+@apimName = <api_management_name>
+@apiPath = <api_path>
+
+### Test APIM endpoint
+GET https://{{apimName}}.azure-api.net/{{apiPath}}

@@ -1,0 +1,414 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Chicken API",
+        "version": "v1.0.0"
+    },
+    "paths": {
+        "/api/chickens": {
+            "get": {
+                "tags": [
+                    "chickens"
+                ],
+                "summary": "Get all chickens",
+                "operationId": "GetChickens",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Chicken"
+                                    },
+                                    "example": [
+                                        {
+                                            "id": 1,
+                                            "name": "Henrietta",
+                                            "age": 2,
+                                            "eggs": [
+                                                {
+                                                    "id": 1,
+                                                    "color": "brown",
+                                                    "size": 2,
+                                                    "chickenId": 1
+                                                },
+                                                {
+                                                    "id": 2,
+                                                    "color": "white",
+                                                    "size": 1,
+                                                    "chickenId": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 2,
+                                            "name": "Cluck Norris",
+                                            "age": 1,
+                                            "eggs": [
+                                                {
+                                                    "id": 3,
+                                                    "color": "brown",
+                                                    "size": 2,
+                                                    "chickenId": 2
+                                                },
+                                                {
+                                                    "id": 4,
+                                                    "color": "white",
+                                                    "size": 1,
+                                                    "chickenId": 2
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "chickens"
+                ],
+                "summary": "Create a new chicken",
+                "operationId": "CreateChicken",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Chicken",
+                                "example": {
+                                    "name": "Henrietta",
+                                    "age": 2,
+                                    "eggs": [
+                                        {
+                                            "color": "brown",
+                                            "size": 2
+                                        },
+                                        {
+                                            "color": "white",
+                                            "size": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Chicken",
+                                    "example": {
+                                        "id": 1,
+                                        "name": "Henrietta",
+                                        "age": 2,
+                                        "eggs": [
+                                            {
+                                                "id": 1,
+                                                "color": "brown",
+                                                "size": 2,
+                                                "chickenId": 1
+                                            },
+                                            {
+                                                "id": 2,
+                                                "color": "white",
+                                                "size": 1,
+                                                "chickenId": 1
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/chickens/{id}": {
+            "get": {
+                "tags": [
+                    "chickens"
+                ],
+                "summary":"Get a chicken by id",
+                "operationId": "GetChicken",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Chicken",
+                                    "example": {
+                                        "id": 1,
+                                        "name": "Henrietta",
+                                        "age": 2,
+                                        "eggs": [
+                                            {
+                                                "id": 1,
+                                                "color": "brown",
+                                                "size": 2,
+                                                "chickenId": 1
+                                            },
+                                            {
+                                                "id": 2,
+                                                "color": "white",
+                                                "size": 1,
+                                                "chickenId": 1
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }     
+            },
+            "put": {
+                "tags": [
+                    "chickens"
+                ],
+                "summary": "Update a chicken",
+                "operationId": "UpdateChicken",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Chicken",
+                                    "example": {
+                                        "id": 1,
+                                        "name": "Henrietta",
+                                        "age": 2,
+                                        "eggs": [
+                                            {
+                                                "id": 1,
+                                                "color": "brown",
+                                                "size": 2,
+                                                "chickenId": 1
+                                            },
+                                            {
+                                                "id": 2,
+                                                "color": "white",
+                                                "size": 1,
+                                                "chickenId": 1
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "chickens"
+                ],
+                "summary": "Delete a chicken",
+                "operationId": "DeleteChicken",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/eggs": {
+            "get": {
+                "tags": [
+                    "eggs"
+                ],
+                "summary": "Get all eggs",
+                "operationId": "GetEggs",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Egg",
+                                        "example": {
+                                            "id": 1,
+                                            "color": "brown",
+                                            "size": 2,
+                                            "chickenId": 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "eggs"
+                ],
+                "summary": "Create a new egg",
+                "operationId": "CreateEgg",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Egg",
+                                    "example": {
+                                        "id": 1,
+                                        "color": "brown",
+                                        "size": 2,
+                                        "chickenId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/eggs/{id}": {
+            "get": {
+                "tags": [
+                    "eggs"
+                ],
+                "summary": "Get an egg by id",
+                "operationId": "GetEgg",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Egg",
+                                    "example": {
+                                        "id": 1,
+                                        "color": "brown",
+                                        "size": 2,
+                                        "chickenId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "eggs"
+                ],
+                "summary": "Update an egg",
+                "operationId": "UpdateEgg",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Egg",
+                                    "example": {
+                                        "id": 1,
+                                        "color": "brown",
+                                        "size": 2,
+                                        "chickenId": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "eggs"
+                ],
+                "summary": "Delete an egg",
+                "operationId": "DeleteEgg",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Chicken": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "age": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "eggs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Egg"
+                        }
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "name": "Henrietta",
+                    "age": 2,
+                    "eggs": [
+                        {
+                            "id": 1,
+                            "color": "brown",
+                            "size": 2,
+                            "chickenId": 1
+                        },
+                        {
+                            "id": 2,
+                            "color": "white",
+                            "size": 1,
+                            "chickenId": 1
+                        }
+                    ]
+                }
+            },
+            "Egg": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "color": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chickenId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "color": "brown",
+                    "size": 2,
+                    "chickenId": 1
+                }
+            }
+        }
+    }
+}

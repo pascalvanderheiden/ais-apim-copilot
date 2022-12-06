@@ -1,0 +1,3 @@
+local.deploy.ps1
+local.tests.http
+*.mp4
