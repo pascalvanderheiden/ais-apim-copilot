@@ -60,6 +60,7 @@ jobs:
           inlineScript: |
             $apimName = az apim list --resource-group '${{ env.resourceGroup }}' --subscription '${{ secrets.AZURE_SUBSCRIPTION_ID }}' --query '[].{Name:name}' -o tsv
             $appInsightsName = az monitor app-insights component show -g '${{ env.resourceGroup }}'--query "[].{applicationId:applicationId}" -o tsv
+            echo "API Management Instance: $apimName"
             echo "APIM_NAME=$apimName" >> $Env:GITHUB_ENV
             echo "APPINSIGHTS_NAME=$appInsightsName" >> $Env:GITHUB_ENV
           azPSVersion: "latest"

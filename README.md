@@ -9,9 +9,13 @@
 
 ## About
 
-I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI Specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added a GitHub Action to deploy it all in an automated way. I've used the [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) language to deploy the resources. I got most of my examples from [here](https://github.com/Azure/bicep/tree/main/docs/examples).
+I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI Specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added a GitHub Action to deploy it all in an automated way. 
+
+I've used the [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) language to deploy the resources. I got most of my examples from [here](https://github.com/Azure/bicep/tree/main/docs/examples).
 
 I've also added mocking policies to the API, so you can test the API without having to implement the backend. I've used the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code to test the API.
+
+I've also added a [ChatGPT](https://openai.com/blog/chatgpt/) generated OpenAPI Specification to compare it with GitHub Copilot.
 
 Hope you find this useful!
 
