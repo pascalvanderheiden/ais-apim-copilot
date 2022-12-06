@@ -51,6 +51,7 @@ jobs:
         with:
           inlineScript: |
             az extension add --name application-insights
+            az extention add --name apim
           azPSVersion: "latest"
 
       - name: 'Retrieve API Management Instance & Application Insights Name'
