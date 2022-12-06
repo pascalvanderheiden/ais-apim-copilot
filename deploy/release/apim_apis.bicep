@@ -16,7 +16,6 @@ resource apimApi 'Microsoft.ApiManagement/service/apis@2020-12-01' = {
   parent: apiManagement
   properties: {
     path: 'chicken'
-    serviceUrl: ''
     apiRevision: '1'
     displayName: 'Chicken API'
     description: 'Chicken service is a sample service created by GitHub Copilot.'
