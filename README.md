@@ -24,6 +24,7 @@ Hope you find this useful!
 * Install [Visual Studio Code](https://code.visualstudio.com/download)
 * Install [GitHub Copilot](https://copilot.github.com/) Extension for Visual Studio Code.
 * Install [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code.
+* Install [OpenAPI Editor](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi) Extension for Visual Studio Code.
 * Install Chocolatey (package manager)
 
 ```ps1
@@ -78,7 +79,21 @@ One thing that was missing in the initial generated code were the parameters, so
 
 ## Create an OpenAPI Specification with ChatGPT
 
-As a comparison I wanted to see how other generators would perform. I've used [ChatGPT](https://openai.com/blog/chatgpt/) to compare.
+As a comparison I wanted to see how other generators would perform. I've used [ChatGPT](https://openai.com/blog/chatgpt/) to compare. It's free, just register and you can start using it.
+
+* Create an OpenAPI Specification with ChatGPT
+
+![ais-apim-copilot](docs/images/chatgpt_openapi_generation.png)
+
+By default it generated a OpenAPI specification in YAML format, without examples. I've asked ChatGPT to generate the examples in my next ask.
+
+![ais-apim-copilot](docs/images/chatgpt_openapi_generation_2.png)
+
+Pretty impressive, but I think GitHub Copilot is still the winner. Because you can use it within Visual Studio Code, and it's easier to extend the OpenAPI Specification. But it's still a good alternative. I've also added the ChatGPT generated OpenAPI Specification to the repository.
+
+I've saved the output [here](deploy/release/openapi/openapi_chatgpt.yaml).
+
+Two things that I've noticed is that ChatGPT does generate the parameters, where Copilot doesn't. Second, I've noticed that when the output get very big, ChatGPT just cuts off the end.
 
 ## Deploy Manually
 

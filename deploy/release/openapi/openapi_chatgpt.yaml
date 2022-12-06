@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  title: Chicken Tracker API
+  version: 1.0.0
+  description: An API for tracking chickens and their eggs
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+paths:
+  /chickens:
+    get:
+      summary: Get a list of all chickens
+      responses:
+        '200':
+          description: A list of chickens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Chicken'
+                example:
+                  - id: 1
+                    name: Henrietta
+                    eggCount: 7
+                  - id: 2
+                    name: Greta
+                    eggCount: 3
+    post:
+      summary: Add a new chicken to the list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Chicken'
+            example:
+              id: 3
+              name: Rosie
+              eggCount: 0
+      responses:
+        '201':
+          description: The newly created chicken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chicken'
+              example:
+                id: 3
+                name: Rosie
+                eggCount: 0
+  /chickens/{id}:
+    get:
+      summary: Get a chicken by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the chicken to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The chicken with the specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chicken'
+              example:
+                id: 1
+                name: Henrietta
+                eggCount: 7
+    put:
+      summary: Update a chicken by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the chicken to update
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Chicken'
+            example:
+              id: 1
+              name: Henrietta
+              eggCount: 8
+      responses:
+        '200':
+          description: The updated chicken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chicken'
+              example:
+                id: 1
+                name: Henrietta
+                eggCount: 8
+    delete:
+      summary: Delete a chicken by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the chicken to delete
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: The chicken was successfully deleted
+components:
+  schemas:
+    Chicken:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique ID of the chicken
+        name:
+          type: string
+          description: The name of the chicken
+        eggCount:
+          type: integer
+          description: The number of eggs laid by the chicken
