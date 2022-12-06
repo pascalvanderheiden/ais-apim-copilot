@@ -137,6 +137,17 @@
                 ],
                 "summary":"Get a chicken by id",
                 "operationId": "GetChicken",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -175,6 +186,17 @@
                 ],
                 "summary": "Update a chicken",
                 "operationId": "UpdateChicken",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -213,6 +235,17 @@
                 ],
                 "summary": "Delete a chicken",
                 "operationId": "DeleteChicken",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "204": {
                         "description": "No Content"
@@ -282,6 +315,16 @@
                 ],
                 "summary": "Get an egg by id",
                 "operationId": "GetEgg",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -307,6 +350,16 @@
                 ],
                 "summary": "Update an egg",
                 "operationId": "UpdateEgg",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -332,6 +385,16 @@
                 ],
                 "summary": "Delete an egg",
                 "operationId": "DeleteEgg",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }],
                 "responses": {
                     "204": {
                         "description": "No Content"
