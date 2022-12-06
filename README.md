@@ -9,11 +9,9 @@
 
 ## About
 
-This is a repository on how to create & deploy an OpenAPI specification created with [GitHub Copilot](https://github.com/features/copilot) to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview) service.
+I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI Specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added a GitHub Action to deploy it all in an automated way. I've used the [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) language to deploy the resources. I got most of my examples from [here](https://github.com/Azure/bicep/tree/main/docs/examples).
 
-I also wanted to make it easy to test and deploy them in an automated way, that is why I've added the GitHub Actions to do this repository.
-
-For deployment I choose to do it all in Bicep templates. I got most of my examples from [here](https://github.com/Azure/bicep/tree/main/docs/examples).
+I've also added mocking policies to the API, so you can test the API without having to implement the backend. I've used the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code to test the API.
 
 Hope you find this useful!
 
