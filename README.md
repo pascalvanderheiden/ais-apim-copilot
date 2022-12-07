@@ -9,13 +9,15 @@
 
 ## About
 
-I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI Specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added a GitHub Action to deploy it all in an automated way.
+I was wondering how current AI tools could help me with API Design. I was already using GitHub Copilot since the beta release, but used it mainly for bicep completion and markdown writing. In the process of creating this repo, my colleague Alexandre Vieira made me aware of the OpenAI project ChatGPT, which has become quite popular lately. I was curious to see how it would perform in comparison to GitHub Copilot.
+
+I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added 2 GitHub Actions to deploy it all in an automated way.
 
 I've used the [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) language to deploy the resources. I got most of my examples from [here](https://github.com/Azure/bicep/tree/main/docs/examples).
 
-I've also added mocking policies to the API, so you can test the API without having to implement the backend. I've used the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code to test the API.
+I've added mocking policies to the API, so you can test the API without having to implement the backend. Which is ideal for testing and prototyping purposes. You could consider this an API Design First approach.
 
-I've also added a [ChatGPT](https://openai.com/blog/chatgpt/) generated OpenAPI specification to compare it with GitHub Copilot.
+I've also added a [ChatGPT](https://openai.com/blog/chatgpt/) generated OpenAPI specification to compare it with GitHub Copilot. Thanks Alexandre Vieira for the suggestion!
 
 Hope you find this useful!
 
