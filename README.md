@@ -9,13 +9,13 @@
 
 ## About
 
-I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI Specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added a GitHub Action to deploy it all in an automated way. 
+I've created this repository to show how you can use [GitHub Copilot](https://github.com/features/copilot) to create an OpenAPI Specification and deploy it to [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/overview). I've also added a GitHub Action to deploy it all in an automated way.
 
 I've used the [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) language to deploy the resources. I got most of my examples from [here](https://github.com/Azure/bicep/tree/main/docs/examples).
 
 I've also added mocking policies to the API, so you can test the API without having to implement the backend. I've used the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) Extension for Visual Studio Code to test the API.
 
-I've also added a [ChatGPT](https://openai.com/blog/chatgpt/) generated OpenAPI Specification to compare it with GitHub Copilot.
+I've also added a [ChatGPT](https://openai.com/blog/chatgpt/) generated OpenAPI specification to compare it with GitHub Copilot.
 
 Hope you find this useful!
 
@@ -97,7 +97,7 @@ Pretty impressive, but I think GitHub Copilot is still the winner. Because you c
 
 I've saved the output [here](deploy/release/openapi/openapi_chatgpt.yaml).
 
-Two things that I've noticed is that ChatGPT does generate the parameters, where Copilot doesn't. Second, I've noticed that when the output get very big, ChatGPT just cuts off the end.
+Two things that I've noticed is that ChatGPT does generate the parameters in the first go, where Copilot doesn't. Second, I've noticed that when the output get very big, ChatGPT just cuts off the end. Also, the interpretation the part of "chickens and their eggs" is different, where Copilot interprets it as 2 seperate entities; chicken and egg, and ChatGPT interprets the eggs as a part of the entity chicken.
 
 ## Deploy Manually
 
@@ -135,7 +135,7 @@ If you deleted the deployment via the Azure Portal, and you want to run this dep
 
 * Testing
 
-I've included a tests.http file with relevant Test you can perform, to check if your deployment is successful. Or you can test it via the Azure Portal.
+I've included a tests.http file with relevant Test you can perform, to check if your deployment is successful. Or you can just test it via the Azure Portal.
 
 ![ais-apim-copilot](docs/images/apim_result.png)
 
