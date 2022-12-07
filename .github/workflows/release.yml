@@ -41,26 +41,17 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            Set-AzContext -Subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-            az account set -s '${{ secrets.AZURE_SUBSCRIPTION_ID }}'
-          azPSVersion: "latest"
-
-      # IMPORT MODULES
-      - name: 'Import modules & extensions'
-        uses: azure/powershell@v1
-        with:
-          inlineScript: |
-            az extension add --name application-insights
-            az extention add --name apim
+            Set-AzContext -Subscription '${{ secrets.AZURE_SUBSCRIPTION_ID }}'
           azPSVersion: "latest"
 
       - name: 'Retrieve API Management Instance & Application Insights Name'
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            $apimName = az apim list --resource-group '${{ env.resourceGroup }}' --subscription '${{ secrets.AZURE_SUBSCRIPTION_ID }}' --query '[].{Name:name}' -o tsv
-            $appInsightsName = az monitor app-insights component show -g '${{ env.resourceGroup }}'--query "[].{applicationId:applicationId}" -o tsv
-            echo "API Management Instance: $apimName"
+            $apim = Get-AzApiManagement -ResourceGroupName '${{ env.resourceGroup }}' | Select-Object -Property Name
+            $appInsights = Get-AzApplicationInsights -ResourceGroupName '${{ env.resourceGroup }}' | Select-Object -Property Name
+            $apimName = $apim.Name
+            $appInsightsName = $appInsights.Name
             echo "APIM_NAME=$apimName" >> $Env:GITHUB_ENV
             echo "APPINSIGHTS_NAME=$appInsightsName" >> $Env:GITHUB_ENV
           azPSVersion: "latest"
