@@ -1,4 +1,4 @@
-# ais-apim-copilot
+# API design with AI and mocking with Azure API Management
 
 ## Build Status
 
@@ -49,9 +49,10 @@ choco install bicep
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-## Create an OpenAPI Specification with GitHub Copilot and implement a mocking policy
+## Create an OpenAPI Specification with GitHub Copilot and OpenAI ChatGPT
 
-* Create an OpenAPI Specification with GitHub Copilot
+### Create an OpenAPI Specification with GitHub Copilot
+
 In Visual Studio Code, open a new file and start typing...
 
 ![ais-apim-copilot](docs/images/github_copilot_openapi.gif)
@@ -77,13 +78,7 @@ One thing that was missing in the initial generated code were the parameters, so
 
 ![ais-apim-copilot](docs/images/extending_openapi_spec_with_copilot_2.png)
 
-* How to add a mocking policy to the [API](deploy/release/policies/api_policy.xml)
-
-```xml
-<mock-response status-code="200" content-type="application/json" />
-```
-
-## Create an OpenAPI Specification with ChatGPT
+### Create an OpenAPI Specification with ChatGPT
 
 As a comparison I wanted to see how other generators would perform. I've used [ChatGPT](https://openai.com/blog/chatgpt/) to compare. It's free, just register and you can start using it.
 
@@ -100,6 +95,14 @@ Pretty impressive, but I think GitHub Copilot is still the winner. Because you c
 I've saved the output [here](deploy/release/openapi/openapi_chatgpt.yaml).
 
 Two things that I've noticed is that ChatGPT does generate the parameters in the first go, where Copilot doesn't. Second, I've noticed that when the output get very big, ChatGPT just cuts off the end. Also, the interpretation the part of "chickens and their eggs" is different, where Copilot interprets it as 2 seperate entities; chicken and egg, and ChatGPT interprets the eggs as a part of the entity chicken.
+
+## Implement a mocking response policy
+
+You can add a mocking response easily in a policy (see snippet below). I've added this policy in the automated deployment [here](deploy/release/policies/api_policy.xml), which will return a mocking response.
+
+```xml
+<mock-response status-code="200" content-type="application/json" />
+```
 
 ## Deploy Manually
 
