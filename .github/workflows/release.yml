@@ -8,7 +8,12 @@ env:
   deploymentNameAPIMRelease: '${{ secrets.PREFIX }}apimrelease'
 
 on:
-  # Only trigger, when the build workflow succeeded
+  # Only trigger, when the build workflow succeeded and changes were made to the openapi folder
+  push:
+    branches:
+      - main
+    paths:
+      - 'deploy/release/openapi/**'
   workflow_run:
     workflows: ["Build"]
     types:
